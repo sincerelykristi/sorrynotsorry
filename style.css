@@ -8,6 +8,7 @@ header {
   background-color: red;
   position: fixed;
   width: 100%;
+  z-index: 950;
 
 }
 
@@ -40,16 +41,26 @@ li a {
   text-decoration: none;
 }
 
+#wrapper {
+  position: relative;
+}
+
 section {
+  position: fixed;
   height: 656px;
-  padding: 150px 40px;
+  padding: 100px 0px;
+  width: 100%;
+  z-index: 900;
+
 }
 
 .board {
+
   height: 650px;
   width: 650px;
   margin: 0 auto;
   border: 3px solid black;
+  background-color: white;
   }
 
 #rowtop {
@@ -101,7 +112,7 @@ section {
   padding: 0px;
   top: 0;
   display: block;
-  margin-left: -2px;
+  margin-left: -1px;
 }
 
 .spacevertleft {
@@ -126,4 +137,23 @@ section {
   background-color: red;
 }
 
+.instructboard {
+  height: 600px;
+  width: 600px;
+  margin: 0 auto;
+  border: 3px solid black;
+  background-color: white;
+  text-align: center;
+  padding: 25px;
+  }
+
+  .instructboard p {
+    width: 80%;
+    padding: 0;
+    margin: 0 auto;
+  }
+
+  .instructboard button {
+    margin-top: 20px;
+  }
 
