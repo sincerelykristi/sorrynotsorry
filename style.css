@@ -21,7 +21,7 @@ h1 {
   display: inline-block;
 }
 
-ul {
+.buttons {
   display: inline-block;
   text-decoration: none;
   list-style-type: none;
@@ -65,7 +65,7 @@ section {
   display: inline-block;
   height: 60px;
   width: 100%;
-  margin-top: 496px;
+  margin-top: 486px;
   padding: 0;
 }
 
@@ -88,23 +88,42 @@ section {
 
 #columnleft {
   width: 79.2px;
-  margin-top: 80px;
+  margin: 0;
   padding: 0;
-  position: absolute;
-  border-left: 2px solid black;
-  border-right: 2px solid black;
+  margin-top: 80px;
 }
 
 .spacevert {
   border: 1px solid black;
+  border-left: 2px solid black;
   height: 80px;
   width: 79.2px;
   padding: 0px;
-  position: relative;
   top: 0;
   display: block;
+  margin-left: -2px;
 }
 
-.clearfix {
-  overflow: auto;
+.spacevertleft {
+  border: 1px solid black;
+  border-right: 2px solid black;
+  height: 80px;
+  width: 79.2px;
+  padding: 0px;
+  top: 0;
+  display: block;
+  margin-left: -1px;
 }
+
+.peg {
+  border-radius: 50%;
+  width: 25px;
+  height: 25px;
+  margin: 7px;
+  display: inline-block;
+  float: left;
+  position: relative;
+  background-color: red;
+}
+
+
