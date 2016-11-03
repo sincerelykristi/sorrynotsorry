@@ -70,6 +70,7 @@ section {
   margin-top: -3px;
   margin-left: -1px;
   padding: 0;
+  position: absolute;
 
 }
 
@@ -77,9 +78,9 @@ section {
   display: inline-block;
   height: 60px;
   width: 100%;
-  margin-top: -35px;
+  bottom: 108px;
   padding: 0;
-  position: relative;
+  position: absolute;
 }
 
 .space {
@@ -97,6 +98,7 @@ section {
   margin: 0;
   padding: 0;
   margin-top: 80px;
+  position: absolute;
 }
 
 #columnleft {
@@ -104,6 +106,7 @@ section {
   margin: 0;
   padding: 0;
   margin-top: 80px;
+  position: absolute;
 }
 
 .spacevert {
@@ -152,19 +155,27 @@ section {
   margin-left: 80px;
 }
 
-#homewrapper p {
-  border: 3px dashed black;
-  padding: 10px;
-}
 .peg {
   border-radius: 50%;
   width: 25px;
   height: 25px;
-  margin: 7px;
+  margin: 23px;
   display: inline-block;
   float: left;
   position: relative;
   background-color: red;
+}
+
+.enpeg {
+  border-radius: 50%;
+  width: 25px;
+  height: 25px;
+  margin:25px;
+  display: inline-block;
+  float: left;
+  position: relative;
+  background-color: blue;
+
 }
 
 .instructboard {
@@ -194,6 +205,21 @@ section {
   margin: 0 auto;
   border: 3px solid black;
   background-color: white;
+  }
+
+  .messagebox {
+    width: 455px;
+    height: 133px;
+    position: fixed;
+    border: 3px dashed black;
+  }
+
+  .messagebox p {
+    padding: 10px;
+  }
+
+  #cardpick {
+    position: ;
   }
 
 

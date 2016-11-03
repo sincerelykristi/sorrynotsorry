@@ -39,14 +39,9 @@
   <div id="gameboard" class="board">
   <!-- <div id="peghome" class="playerhome"></div> -->
     <ul id="rowtop">
-      <li id="playerstart" class="space">
-        <div id="peg1" class="peg"></div>
-        <div id="peg2" class="peg"></div>
-        <div id="peg3" class="peg"></div>
-        <div id="peg4" class="peg"></div>
-
+      <li id="playerstart" class="space 0">
         <ul id="columnleft">
-          <li id="playerfinish" class="spacevertleft">
+          <li id="playerfinish" class="spacevertleft 27">
           <li class="spacevertleft 26">
           <li class="spacevertleft 25">
           <li class="spacevertleft 24">
@@ -72,17 +67,6 @@
         </ul>
 
     </ul>
-<div id="homewrapper">
-<div id="peghome" class="playerhome"></div>
-<div id="enemypeghome" class="enemyhome"></div>
-<br />
-<br />
-<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-consequat. Duis aute irure dolor in.</p>
-<button id="cardpick">Pick a card</button>
-</div>
     <ul id="rowbottom">
       <li class="space 21">
       <li class="space 20">
@@ -94,6 +78,29 @@ consequat. Duis aute irure dolor in.</p>
       <li class="space 14">
 
     </ul>
+<div id="homewrapper">
+<div id="peghome" class="playerhome">
+        <div id="peg1" class="peg"></div>
+        <div id="peg2" class="peg"></div> <!--player's pegs-->
+        <div id="peg3" class="peg"></div>
+        <div id="peg4" class="peg"></div>
+</div>
+<div id="enemypeghome" class="enemyhome">
+      <div id="enpeg1" class="enpeg"></div>
+        <div id="enpeg2" class="enpeg"></div> <!--computer's pegs-->
+        <div id="enpeg3" class="enpeg"></div>
+        <div id="enpeg4" class="enpeg"></div>
+</div>
+<br />
+<br />
+<div class="messagebox">
+<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+consequat. Duis aute irure dolor in.</p>
+<button id="cardpick">Pick a card</button>
+</div>
+</div>
   </div>
 </section>
 <!-- About Section -->
