@@ -5,11 +5,11 @@ var $instructsection = $("#instructions");
 var $gamesection = $("#game");
 var $aboutsection = $("#about");
 
-console.log($gamesection);
-console.log($instructsection);
-console.log($aboutsection);
+$aboutsection.css('visibility', 'hidden')
+$gamesection.css('visibility', 'hidden');
+$instructsection.css('visibility', 'visible');
 
-// navigation button functions
+// Navigation Button Functions
 // Instructions Button
 function clickInstructions() {
   $("#ins").click(function(){
@@ -45,6 +45,49 @@ function clickAbout() {
 };
 
 clickAbout();
+
+// End of Navigation Functions
+
+// ----------------------------------------------------------------
+
+// function createPegs() {
+//   console.log("creating pegs");
+//   var $pegs = $("<div class='peg'></div>");
+//   for(i = 0;i < 4;i++ )
+// };
+
+function playButton() {
+  $("#play").click(function(){
+    console.log("play clicked!");
+    $instructsection.css('visibility', 'hidden');
+    $aboutsection.css('visibility', 'hidden');
+    $gamesection.css('visibility', 'visible');
+  });
+};
+
+playButton();
+
+function pickCard() {
+  $("#cardpick").click(function(){
+
+  })
+}
+
+function createBoard(x) {
+  for (var rows = 0; rows < x; rows++) {
+    for (var columns = 0; columns <x; columns++) {
+        $("#aboutboard").append("<div class='spacetest'></div>");
+    };
+  };
+  $(".spacetest").width(650/x);
+  $(".spacetest").height(650/x);
+}
+
+createBoard(8);
+
+
+
+
 
 
 
