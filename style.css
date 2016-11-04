@@ -139,8 +139,9 @@ section {
 
 .playerhome {
   border-radius: 50%;
-  width: 150px;
-  height: 150px;
+  height: 80px;
+  width: 79.2px;
+  padding: 35px;
   display: block;
   display: inline-block;
   background-color: gray;
@@ -148,8 +149,9 @@ section {
 
 .enemyhome {
   border-radius: 50%;
-  width: 150px;
-  height: 150px;
+  height: 80px;
+  width: 79.2px;
+  padding: 35px;
   display: inline-block;
   background-color: gray;
   margin-left: 80px;
@@ -159,7 +161,7 @@ section {
   border-radius: 50%;
   width: 25px;
   height: 25px;
-  margin: 23px;
+  margin: 6px;
   display: inline-block;
   float: left;
   position: relative;
@@ -170,7 +172,7 @@ section {
   border-radius: 50%;
   width: 25px;
   height: 25px;
-  margin:25px;
+  margin:6px;
   display: inline-block;
   float: left;
   position: relative;

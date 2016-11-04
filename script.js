@@ -80,28 +80,50 @@ function playButton() {
 
 playButton();
 
-//Picks a random number between 1-10 and assigns movement meaning to card
-function pickCard() {
-  $("#cardpick").click(function(){
+//--------------------------------------------------------------------
+
+//Player's turn!
+
+function yourTurn() {
+
+ $("#cardpick").click(function(){
+  pickCard();
+  });
+//picks a random number, tells the player that number and calls the next function
+  function pickCard(){
     $("#cardpick").css('visibility', 'hidden');
-    var $cardMoves = (Math.floor(Math.random() * (10 - 1 + 1)) + 1);
-    $messagebox.text("You drew a " + $cardMoves + "! Click on the peg you'd like to move.");
-    return $cardMoves;
-  });
+      // cardMoves = (Math.floor(Math.random() * (10 - 1 + 1)) + 1); REMEMBER TO CHANGE THIS BACK
+      cardMoves = 10;
+      $messagebox.text("You drew a " + cardMoves + "! Click on the peg you'd like to move.");
+      console.log(cardMoves);
+      calculateMoves();
+  };
+
+
+  function calculateMoves() {
+    $(".peg").click(function(){
+      $(this).css({"border" : "2px solid black"}).addClass("selected");
+      $messagebox.text("Now click on the highlighted square to move your peg there!");
+      var $currentSpace = parseInt($(this).parent().attr("class").split(' ')[1]);
+      console.log($currentSpace);
+      newSpace = ($currentSpace + cardMoves);
+      console.log(newSpace);
+        $("." + newSpace).css({"background-color" : "yellow"}).click(function(){
+          (".10 .enpeg") === true;
+          console.log("you clicked the space!");
+          $(this).append($(".selected"));
+        });
+
+        // if ($(newSpace).children(".enpeg").length > 0) {
+
+        //   console.log("children!")
+        // };
+
+      });
+    };
 };
 
-pickCard();
-
-function makeMoves() {
-  $(".peg").click(function(){
-    $(this).css({"border" : "2px solid black"});
-    $messagebox.text("Now click on the highlighted square to move your peg there!");
-    var $currentSpace = $(this).parent();
-    console.log($currentSpace);
-  });
-};
-
-makeMoves();
+yourTurn();
 
 
 //     var $selected = $(".peg").click(function(){
