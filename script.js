@@ -38,6 +38,7 @@ function clickGame() {
     $instructsection.css('visibility', 'hidden');
     $aboutsection.css('visibility', 'hidden');
     $gamesection.css('visibility', 'visible');
+    yourTurn();
   });
 };
 
@@ -59,11 +60,7 @@ clickAbout();
 
 // ----------------------------------------------------------------
 
-// function createPegs() {
-//   console.log("creating pegs");
-//   var $pegs = $("<div class='peg'></div>");
-//   for(i = 0;i < 4;i++ )
-// };
+
 
 //Play! button on the instructions Page. Hides instructions and about pages and shows the Game.
 function playButton() {
@@ -85,6 +82,7 @@ playButton();
 function yourTurn() {
 $("#cardpick").css('visibility', 'visible');
 
+
 //picks a random number, tells the player that number and calls the next function
   function pickCard() {
     $("#cardpick").click(function(){
@@ -103,12 +101,17 @@ $("#cardpick").css('visibility', 'visible');
   function calculateMoves() {
     clearTimeout(entu);
     //switch case for cards!!!!!!
+    //Let's you click on a peg to choose it and calculates where you can move that
+    //peg based on the card you just drew
     $(".peg").click(function(){
       $(this).css({"border" : "2px solid black"}).addClass("selected");
       $messagebox.text("Now click on the highlighted square to move your peg there!");
       var $currentSpace = parseInt($(this).parent().attr("class").split(' ')[1]);
       console.log($currentSpace);
       newSpace = ($currentSpace + cardMoves);
+        if (newSpace > 28) {
+          newSpace = 28;
+        };
       console.log(newSpace);
       $(".peg").off();
         $("." + newSpace).css({"background-color" : "yellow"}).click(function(){
@@ -116,17 +119,21 @@ $("#cardpick").css('visibility', 'visible');
             console.log("you clicked the space!");
             $("#enemypeghome").append($("." + newSpace).children(".enpeg"));
             $messagebox.text("All's fair in love and war and this square isn't big enough for the both of you. You sent the blue peg back to the start. Ok, time to give them a chance to catch up. Their move next.");
-          } else if ($("." + newSpace) === ("#playerfinish")){
-            $messagebox.text("You got another peg to the finish and on to fame and glory.");
-
+            entu = setTimeout(enemyTurn, 2000);
+          } else if (newSpace === 28) {
+            $messagebox.text("You got another peg to the finish and on to fame and glory! ");
+            console.log("made it to the finish!")
+            $(".selected").fadeOut('slow', function() {
+            });
+            checkWinnerRed();
           } else {
-            $messagebox.text("Ok, you made your moves. You deserve a break and you should give the blue peg a chance to catch up.")
+            $messagebox.text("Ok, you made your moves. You deserve a break and you should give the blue peg a chance to catch up.");
+            entu = setTimeout(enemyTurn, 2000);
           };
           $(this).append($(".selected"));
           $(this).css({"background-color" : "white"});
           $(".selected").removeClass("selected").css({"border" : "none"});
           $("." + newSpace).off();
-          entu = setTimeout(enemyTurn, 2000);
         });
       });
     };
@@ -138,9 +145,9 @@ $("#cardpick").css('visibility', 'visible');
 //---------------------------------------------------------------------------
 
 
-function enemyTurn(){
+function enemyTurn() {
 
-pickCard();
+  pickCard();
 
   function pickCard(){
     clearTimeout(calc);
@@ -150,49 +157,64 @@ pickCard();
   };
 
   function calculateMoves() {
-      setTimeout(calmo);
-      //switch case for cards!!!!!!
-      enPegSelected = ("#enpeg" + (Math.floor(Math.random() * (4 - 1 + 1)) + 1));
-      $(enPegSelected).css({"border" : "2px solid black"}).addClass("selected");
-      var $currentSpace = parseInt($(enPegSelected).parent().attr("class").split(' ')[1]);
-      newSpace = ($currentSpace + cardMoves);
-      $("." + newSpace).css({"background-color" : "yellow"});
-      calmo = setTimeout(tellMoves, 1000);
-    };
+    clearTimeout(calmo);
+    //switch case for cards!!!!!!
+    enPegSelected = ("#enpeg" + (Math.floor(Math.random() * (4 - 1 + 1)) + 1));
+    $(enPegSelected).css({"border" : "2px solid black"}).addClass("selected");
+    var $currentSpace = parseInt($(enPegSelected).parent().attr("class").split(' ')[1]);
+    newSpace = ($currentSpace + cardMoves);
+    if (newSpace > 28) {
+          newSpace = 28;
+        };
+    $("." + newSpace).css({"background-color" : "yellow"});
+    calmo = setTimeout(tellMoves, 1500);
+  };
 
 
   function tellMoves() {
-      setTimeout(yotu);
-            if ($("." + newSpace).find(".peg").length != 0){
-              $("#peghome").append($("." + newSpace).children(".peg"));
-                $messagebox.text("Oh no they didn't! The blue peg sent your peg back home. Better hustle to catch up!");
-            } else {
-              $messagebox.text("They got pretty far. Better hustle so you don't fall behind!");
-            };
-            $("." + newSpace).append($(".selected"));
-            $("." + newSpace).css({"background-color" : "white"});
-            $(".selected").removeClass("selected").css({"border" : "none"});
-            yotu = setTimeout(yourTurn, 2000);
+    clearTimeout(yotu);
+    if ($("." + newSpace).find(".peg").length != 0){
+      $("#peghome").append($("." + newSpace).children(".peg"));
+      $messagebox.text("Oh no they didn't! The blue peg sent your peg back home. Better hustle to catch up!");
+        } else if (newSpace === 28) {
+            $messagebox.text("You're slacking! Blue just got a peg home!");
+            console.log("BLUE MADE ONE IN");
+            $(".selected").fadeOut('slow', function() {
+            });
+            checkWinnerBlue();
+        } else {
+        $messagebox.text("They got pretty far. Better hustle so you don't fall behind!");
+        yotu = setTimeout(yourTurn, 2500);
+        };
+      $("." + newSpace).append($(".selected"));
+      $("." + newSpace).css({"background-color" : "white"});
+      $(".selected").removeClass("selected").css({"border" : "none"});
   };
 };
 
 
 
-// function checkWinner() {
-//   $("#playerfinish").
-// };
+function checkWinnerRed() {
 
+              if ($(".28 .peg").length === 3) {
+                $messagebox.text("Crushed it! You got all of the pegs off the board and you WIN!");
+                } else {
+                  clearTimeout(entu);
+                  console.log("enemy turn");
+                entu = setTimeout(enemyTurn, 2500);
+                };
+};
 
+function checkWinnerBlue() {
 
-
-
-
-
-
-
-
-
-
+              if ($(".28 .enpeg").length === 3) {
+                $messagebox.text("#EPICFAIL...Blue got all their pegs home. Play again when you're feeling a little more unapologetic.");
+                } else {
+                  clearTimeout(entu);
+                  console.log("enemy turn");
+                yotu = setTimeout(yourTurn, 2500);
+                };
+};
 
 
 
