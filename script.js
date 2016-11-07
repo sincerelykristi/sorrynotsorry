@@ -174,7 +174,7 @@ function enemyTurn() {
 
 
   function tellMoves() {
-    clearTimeout(yotu);
+    // clearTimeout(yotu);
      if (newSpace === 28) {
             $messagebox.text("You're slacking! Blue just got a peg home!");
             console.log("BLUE MADE ONE IN");
