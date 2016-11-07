@@ -157,7 +157,6 @@ function enemyTurn() {
 
   function calculateMoves() {
     clearTimeout(calmo);
-    //switch case for cards!!!!!!
     enPegSelected = ("#enpeg" + (Math.floor(Math.random() * (4 - 1 + 1)) + 1));
       if ($(enPegSelected).parents("#playerfinish").length == 1) {
         calculateMoves();
@@ -174,11 +173,10 @@ function enemyTurn() {
 
 
   function tellMoves() {
-    // clearTimeout(yotu);
+    clearTimeout(yotu);
      if (newSpace === 28) {
             $messagebox.text("You're slacking! Blue just got a peg home!");
             console.log("BLUE MADE ONE IN");
-            debugger;
             $(".selected").fadeOut('slow', function() {
             });
             checkWinnerBlue();
