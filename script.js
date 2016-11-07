@@ -104,7 +104,7 @@ $("#cardpick").css('visibility', 'visible');
     //Let's you click on a peg to choose it and calculates where you can move that
     //peg based on the card you just drew
     $(".peg").click(function(){
-      $(this).css({"border" : "2px solid black"}).addClass("selected");
+      $(this).css({"border" : "2px solid #AAAAAA"}).addClass("selected");
       $messagebox.text("Now click on the highlighted square to move your peg there!");
       var $currentSpace = parseInt($(this).parent().attr("class").split(' ')[1]);
       console.log($currentSpace);
@@ -114,18 +114,18 @@ $("#cardpick").css('visibility', 'visible');
         };
       console.log(newSpace);
       $(".peg").off();
-        $("." + newSpace).css({"background-color" : "yellow"}).click(function(){
-          if ($("." + newSpace).find("div.enpeg").length != 0){
-            console.log("you clicked the space!");
-            $("#enemypeghome").append($("." + newSpace).children(".enpeg"));
-            $messagebox.text("All's fair in love and war and this square isn't big enough for the both of you. You sent the blue peg back to the start. Ok, time to give them a chance to catch up. Their move next.");
-            entu = setTimeout(enemyTurn, 2000);
-          } else if (newSpace === 28) {
+        $("." + newSpace).css({"background-color" : "#AEEE00"}).click(function(){
+          if (newSpace === 28) {
             $messagebox.text("You got another peg to the finish and on to fame and glory! ");
             console.log("made it to the finish!")
             $(".selected").fadeOut('slow', function() {
             });
             checkWinnerRed();
+          } else if ($("." + newSpace).find("div.enpeg").length != 0){
+            console.log("you clicked the space!");
+            $("#enemypeghome").append($("." + newSpace).children(".enpeg"));
+            $messagebox.text("All's fair in love and war and this square isn't big enough for the both of you. You sent the blue peg back to the start. Ok, time to give them a chance to catch up. Their move next.");
+            entu = setTimeout(enemyTurn, 3000);
           } else {
             $messagebox.text("Ok, you made your moves. You deserve a break and you should give the blue peg a chance to catch up.");
             entu = setTimeout(enemyTurn, 2000);
@@ -160,28 +160,34 @@ function enemyTurn() {
     clearTimeout(calmo);
     //switch case for cards!!!!!!
     enPegSelected = ("#enpeg" + (Math.floor(Math.random() * (4 - 1 + 1)) + 1));
-    $(enPegSelected).css({"border" : "2px solid black"}).addClass("selected");
+    $(enPegSelected).css({"border" : "2px solid #AAAAAA"}).addClass("selected");
     var $currentSpace = parseInt($(enPegSelected).parent().attr("class").split(' ')[1]);
     newSpace = ($currentSpace + cardMoves);
     if (newSpace > 28) {
           newSpace = 28;
         };
-    $("." + newSpace).css({"background-color" : "yellow"});
+    $("." + newSpace).css({"background-color" : "#AEEE00"});
     calmo = setTimeout(tellMoves, 1500);
   };
 
 
   function tellMoves() {
     clearTimeout(yotu);
-    if ($("." + newSpace).find(".peg").length != 0){
-      $("#peghome").append($("." + newSpace).children(".peg"));
-      $messagebox.text("Oh no they didn't! The blue peg sent your peg back home. Better hustle to catch up!");
-        } else if (newSpace === 28) {
+     if (newSpace === 28) {
             $messagebox.text("You're slacking! Blue just got a peg home!");
             console.log("BLUE MADE ONE IN");
             $(".selected").fadeOut('slow', function() {
             });
             checkWinnerBlue();
+        } else if ($("." + newSpace).find(".peg").length != 0){
+            $messagebox.text("You're slacking! Blue just got a peg home!");
+            console.log("BLUE MADE ONE IN");
+            $(".selected").fadeOut('slow', function() {
+            });
+            checkWinnerBlue();
+            $("#peghome").append($("." + newSpace).children(".peg"));
+            $messagebox.text("Oh no they didn't! The blue peg sent your peg back home. Better hustle to catch up!");
+            yourTurn();
         } else {
         $messagebox.text("They got pretty far. Better hustle so you don't fall behind!");
         yotu = setTimeout(yourTurn, 2500);

@@ -5,11 +5,13 @@ body {
 
 
 header {
-  background-color: red;
+  background-color: white;
   position: fixed;
   width: 100%;
   z-index: 950;
-
+  -webkit-box-shadow: -1px -9px 42px 15px rgba(0,0,0,0.61);
+  -moz-box-shadow: -1px -9px 42px 15px rgba(0,0,0,0.61);
+  box-shadow: -1px -9px 42px 15px rgba(0,0,0,0.61);
 }
 
 nav {
@@ -20,15 +22,20 @@ nav {
 
 h1 {
   display: inline-block;
+  font-family: 'Oswald', sans-serif;
+  letter-spacing: 1.5px;
 }
+
+h1 span {
+  color: #FF358B;
+}
+
 
 .buttons {
   display: inline-block;
   text-decoration: none;
   list-style-type: none;
   float: right;
-
-
 }
 
 li {
@@ -37,9 +44,24 @@ li {
 }
 
 li a {
-  color: black;
+  color: #333333;
   text-decoration: none;
+  font-family: 'Open Sans', sans-serif;
 }
+
+p, button {
+ font-family: 'Open Sans', sans-serif;
+}
+
+button {
+  padding: 15px;
+  width: 110px;
+  font-size: 13px;
+  margin-top: 10px;
+  border-radius: 30%;
+}
+
+
 
 #wrapper {
   position: relative;
@@ -54,50 +76,49 @@ section {
 
 }
 
-.board {
-
+#gameboard {
   height: 650px;
   width: 650px;
   margin: 0 auto;
-  border: 3px solid black;
-  background-color: white;
+  border: 1px solid white;
+  background-color: #AEEE00;
   }
 
 #rowtop {
+  margin: 0px;
   display: inline-block;
-  height: 60px;
-  width: 100%;
-  margin-top: -3px;
-  margin-left: -1px;
+  height: 79.25px;
+  width: 650px;
   padding: 0;
   position: absolute;
-
 }
 
 #rowbottom {
   display: inline-block;
-  height: 60px;
-  width: 100%;
-  bottom: 108px;
+  height: 79.25px;
+  width: 650px;
+  bottom: 107px;
   padding: 0;
   position: absolute;
+  margin: 0;
 }
+
 
 .space {
   display: inline-block;
-  border: 1px solid black;
-  border-bottom: 2px solid black;
-  border-top: 2px solid black;
+  border: 1px solid #333333;
   padding: 0;
-  height: 79px;
-  width: 79.2px;
+  height: 79.25px;
+  width: 79.25px;
+  background-color: white;
 }
 
 #columnright {
-  width: 79.2px;
-  margin: 0;
+  width: 80px;
+  margin: 0px;
   padding: 0;
   margin-top: 80px;
+  margin-left: -1px;
   position: absolute;
 }
 
@@ -105,30 +126,47 @@ section {
   width: 79.2px;
   margin: 0;
   padding: 0;
-  margin-top: 80px;
+  margin-top: 55px;
   position: absolute;
 }
 
 .spacevert {
-  border: 1px solid black;
-  border-left: 2px solid black;
+  border: 1px solid #333333;
   height: 80px;
-  width: 79.2px;
+  width: 80px;
   padding: 0px;
-  top: 0;
   display: block;
-  margin-left: -1px;
+  margin-right: 0px;
+  background-color: white;
 }
 
 .spacevertleft {
-  border: 1px solid black;
-  border-right: 2px solid black;
+  border: 1px solid #333333;
   height: 80px;
   width: 79.2px;
   padding: 0px;
   top: 0;
   display: block;
   margin-left: -1px;
+  background-color: white;
+}
+
+#playerfinish h1  {
+  text-align: center;
+  display: block;
+  margin: 0 auto;
+  font-size: 17px;
+}
+
+#playerstart {
+  float: left;
+}
+
+#playerstart h1  {
+  text-align: center;
+  display: block;
+  margin: 0 auto;
+  font-size: 17px;
 }
 
 #homewrapper {
@@ -139,45 +177,49 @@ section {
 
 .playerhome {
   border-radius: 50%;
-  height: 80px;
-  width: 79.2px;
+  height: 86px;
+  width: 86px;
   padding: 35px;
   display: block;
   display: inline-block;
-  background-color: gray;
+  background-color: #333333;
+  margin-right: 40px;
 }
 
 .enemyhome {
   border-radius: 50%;
-  height: 80px;
-  width: 79.2px;
+  height: 86px;
+  width: 86px;
   padding: 35px;
   display: inline-block;
-  background-color: gray;
-  margin-left: 80px;
+  background-color: #333333;
+  margin-left: 40px;
 }
 
 .peg {
   border-radius: 50%;
   width: 25px;
   height: 25px;
-  margin: 6px;
+  margin: 7px;
   display: inline-block;
-  float: left;
   position: relative;
-  background-color: red;
+  background-color: #FF358B;
+  float: left;
 }
 
 .enpeg {
   border-radius: 50%;
   width: 25px;
   height: 25px;
-  margin:6px;
+  margin: 7px;
   display: inline-block;
-  float: left;
   position: relative;
-  background-color: blue;
+  background-color: #01B0F0;
+  float: left;
+}
 
+.selected {
+  border: 2px solid #AAAAAA;
 }
 
 .instructboard {
@@ -191,13 +233,17 @@ section {
   }
 
   .instructboard p {
-    width: 80%;
+    width: 90%;
     padding: 0;
     margin: 0 auto;
   }
 
   .instructboard button {
-    margin-top: 20px;
+    margin-top: 15px;
+  }
+
+  .instructboard img {
+    height: 35%;
   }
 
   .aboutboard {
@@ -214,24 +260,13 @@ section {
     height: 133px;
     position: fixed;
     border: 3px dashed black;
-  }
-
-  .messagebox p {
-    padding: 10px;
-  }
-
-  #cardpick {
-    position: ;
+    background-color: white;
   }
 
 
 
-.spacetest {
-  display: inline-block;
-  border: 1px solid black;
-  padding: 0;
-  margin: -2.8px -1px;
 
-}
+
+
 
 
