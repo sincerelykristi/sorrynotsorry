@@ -10,7 +10,7 @@
 
 *I was able to go one step beyond my MVP and include testing for if a peg lands where an opposing peg is currently, it will send that peg home to start over, adding some strategy for the user.*
 
-**Wireframes:**![Wireframes](wireframes.jpg =400px)
+**Wireframes:**<img src="wireframes.jpg" width="400">
 
 
 
