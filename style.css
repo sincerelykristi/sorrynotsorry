@@ -118,7 +118,7 @@ section {
   margin: 0px;
   padding: 0;
   margin-top: 80px;
-  margin-left: -1px;
+  margin-left: -2px;
   position: absolute;
 }
 
@@ -232,35 +232,50 @@ section {
   padding: 25px;
   }
 
-  .instructboard p {
-    width: 90%;
-    padding: 0;
-    margin: 0 auto;
-  }
+.instructboard p {
+  width: 90%;
+  padding: 0;
+  margin: 0 auto;
+}
 
-  .instructboard button {
-    margin-top: 15px;
-  }
+.instructboard button {
+  margin-top: 15px;
+}
 
-  .instructboard img {
-    height: 35%;
-  }
+.instructboard img {
+   height: 35%;
+}
 
-  .aboutboard {
+.aboutboard {
 
   height: 650px;
   width: 650px;
   margin: 0 auto;
   border: 3px solid black;
   background-color: white;
-  }
+  text-align: center;
+}
 
-  .messagebox {
-    width: 455px;
-    height: 133px;
-    position: fixed;
-    border: 3px dashed black;
-    background-color: white;
+.aboutboard p {
+  width: 90%;
+  padding: 0;
+  margin: 0 auto;
+}
+
+.aboutboard img {
+  margin-top: 65px;
+}
+
+.messagebox {
+  width: 455px;
+  height: 133px;
+  position: fixed;
+  border: 3px dashed black;
+  background-color: white;
+}
+
+.messagebox p {
+  margin-bottom: 0px;
   }
 
 

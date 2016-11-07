@@ -160,6 +160,9 @@ function enemyTurn() {
     clearTimeout(calmo);
     //switch case for cards!!!!!!
     enPegSelected = ("#enpeg" + (Math.floor(Math.random() * (4 - 1 + 1)) + 1));
+      if ($(enPegSelected).parents("#playerfinish").length == 1) {
+        calculateMoves();
+      }
     $(enPegSelected).css({"border" : "2px solid #AAAAAA"}).addClass("selected");
     var $currentSpace = parseInt($(enPegSelected).parent().attr("class").split(' ')[1]);
     newSpace = ($currentSpace + cardMoves);
@@ -201,25 +204,23 @@ function enemyTurn() {
 
 
 function checkWinnerRed() {
-
-              if ($(".28 .peg").length === 3) {
-                $messagebox.text("Crushed it! You got all of the pegs off the board and you WIN!");
-                } else {
-                  clearTimeout(entu);
-                  console.log("enemy turn");
-                entu = setTimeout(enemyTurn, 2500);
-                };
+  if ($(".28 .peg").length === 3) {
+  $messagebox.text("Crushed it! You got all of the pegs off the board and you WIN!");
+  } else {
+  clearTimeout(entu);
+  console.log("enemy turn");
+  entu = setTimeout(enemyTurn, 2500);
+  };
 };
 
 function checkWinnerBlue() {
-
-              if ($(".28 .enpeg").length === 3) {
-                $messagebox.text("#EPICFAIL...Blue got all their pegs home. Play again when you're feeling a little more unapologetic.");
-                } else {
-                  clearTimeout(entu);
-                  console.log("enemy turn");
-                yotu = setTimeout(yourTurn, 2500);
-                };
+  if ($(".28 .enpeg").length === 3) {
+  $messagebox.text("#EPICFAIL...Blue got all their pegs home. Play again when you're feeling a little more unapologetic.");
+  } else {
+  clearTimeout(entu);
+  console.log("enemy turn");
+  yotu = setTimeout(yourTurn, 2500);
+  };
 };
 
 
