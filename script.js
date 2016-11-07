@@ -206,6 +206,7 @@ function enemyTurn() {
 function checkWinnerRed() {
   if ($(".28 .peg").length === 3) {
   $messagebox.text("Crushed it! You got all of the pegs off the board and you WIN!");
+  return;
   } else {
   clearTimeout(entu);
   console.log("enemy turn");
