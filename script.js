@@ -100,7 +100,6 @@ $("#cardpick").css('visibility', 'visible');
 
   function calculateMoves() {
     clearTimeout(entu);
-    //switch case for cards!!!!!!
     //Let's you click on a peg to choose it and calculates where you can move that
     //peg based on the card you just drew
     $(".peg").click(function(){
@@ -179,15 +178,11 @@ function enemyTurn() {
      if (newSpace === 28) {
             $messagebox.text("You're slacking! Blue just got a peg home!");
             console.log("BLUE MADE ONE IN");
+            debugger;
             $(".selected").fadeOut('slow', function() {
             });
             checkWinnerBlue();
-        } else if ($("." + newSpace).find(".peg").length != 0){
-            $messagebox.text("You're slacking! Blue just got a peg home!");
-            console.log("BLUE MADE ONE IN");
-            $(".selected").fadeOut('slow', function() {
-            });
-            checkWinnerBlue();
+        } else if ($("." + newSpace).find(".peg").length != 0) {
             $("#peghome").append($("." + newSpace).children(".peg"));
             $messagebox.text("Oh no they didn't! The blue peg sent your peg back home. Better hustle to catch up!");
             yourTurn();
@@ -215,8 +210,11 @@ function checkWinnerRed() {
 };
 
 function checkWinnerBlue() {
+  clearTimeout(yotu);
+  clearTimeout(entu);
   if ($(".28 .enpeg").length === 3) {
   $messagebox.text("#EPICFAIL...Blue got all their pegs home. Play again when you're feeling a little more unapologetic.");
+    return;
   } else {
   clearTimeout(entu);
   console.log("enemy turn");
