@@ -24,6 +24,8 @@ occasionally will not stop the game and return the You Lose! message.
 
 Also, often when the user's peg moves just one from Home to land on the start, it will return a message saying that you have send a blue peg home, even though one was not there.
 
+Lastly, If you go to the game then back to Instructions, the 'Draw Card' button stays.
+
 
 
 
